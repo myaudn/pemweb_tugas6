@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catatan Pengeluaran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div style="display: flex; min-height: 100vh;">
+        <div style="width: 67%; background-color: #19350C; padding: 50px 20px;">
+            <h1 style="color: #B0B8DF; font-size: 48px; padding-left: 25px;">Catat dan kelola pengeluaranmu!</h1>
+            <p style="color: #D5D3CC; padding: 0 25px;">Dengan pelacak pengeluaran, Kamu bisa mengatur pengeluaran harianmu dengan lebih baik, untuk masa depan yang lebih baik, pula!</p>
+            <a href="display.php" style="margin-left: 25px; padding: 5px 10px; text-decoration: none; color: #D5D3CC; background-color: #687D31; border-radius: 8px;">Lihat Rekap</a>
+        </div>
+
+        <div style="width: 33%; padding: 50px 50px 50px 0; background-color: #D5D3CC; display: flex; flex-direction: column;align-items: center; justify-content: center; color: #19350C;">
+            <p style="font-weight: 600; font-size: 20px;">Habis beli apa, nih?</p>
+            <form action="input.php" method="POST">
+                <label for="pengeluaran">Barang yang dibeli</label><br>
+                <input type="text" class="input" name="pengeluaran" placeholder="Pengeluaran"><br>
+                <label for="deskripsi">Detail barang yang dibeli</label><br>
+                <input type="text" class="input" name="deskripsi" placeholder="Deskripsi"><br>
+                <label for="jenis">Jenis pengeluaran</label><br>
+                <select name="jenis" class="input" id="jenis">
+                    <option value="" disabled selected>Pilih opsi</option>
+                    <option value="makan">Makan</option>
+                    <option value="snack">Snack</option>
+                    <option value="kuliah">Kuliah</option>
+                    <option value="stok">Stok Makanan</option>
+                    <option value="daily">Barang Sehari-Hari</option>
+                </select><br>
+                <label for="besaran">Uang yang dikeluarkan</label><br>
+                <input type="text" class="input" name="besaran" placeholder="Rp0,-"><br>
+
+                <input type="submit" value="Simpan" style="padding: 5px 10px; font-family: inherit; font-size: 14px; background-color: #506F67; color: #D5D3CC; border: none; border-radius: 8px;">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
