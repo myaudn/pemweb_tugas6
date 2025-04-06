@@ -62,7 +62,7 @@ $hari_map = [
                         <td><?= $row['pengeluaran']?></td>
                         <td><?= $row['deskripsi']?></td>
                         <td><?= $row['jenis']?></td>
-                        <td><?= $row['besaran']?></td>
+                        <td><?= number_format($row['besaran'], 0, ',', '.') ?></td>
                         <td>
                             <a href="update.php?id_expenses=<?= $row['id_expenses'] ?>">Edit</a> |
                             <a href="delete.php?id_expenses=<?= $row['id_expenses'] ?>" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
@@ -72,7 +72,7 @@ $hari_map = [
                 </tbody>
             </table>
         </div>
-        <br><p><span style="font-weight: 600; font-size: 24px;">Total Pengeluaran : <?= $total ?></span></p>
+        <br><p><span style="font-weight: 600; font-size: 24px;">Total Pengeluaran : <?= number_format($total, 0, ',', '.') ?></span></p>
 
         <a href="index.html" style="text-decoration: none; color: #D5D3CC; background-color: #19350C; padding: 5px 10px; border-radius: 8px;">Tambahkan data</a>
     </div>
