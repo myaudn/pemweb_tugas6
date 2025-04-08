@@ -2,13 +2,14 @@
 include "koneksi.php";
 
 $id_expenses = $_POST['id_expenses'];
-$tanggal = $_PORT['tanggal'];
+$tanggal = $_POST['tanggal'];
 $pengeluaran = $_POST['pengeluaran'];
 $deskripsi = $_POST['deskripsi'];
 $jenis = $_POST['jenis'];
 $besaran = $_POST['besaran'];
 
 $sql = "UPDATE pengeluaran SET
+            hari = DAYNAME('$tanggal'),
             tanggal = '$tanggal',
             pengeluaran = '$pengeluaran',
             deskripsi = '$deskripsi',
