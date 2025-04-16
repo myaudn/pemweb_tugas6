@@ -4,7 +4,7 @@ if ($koneksi->connect_error) {
     die("Koneksi gagal: " . $koneksi->connect_error);
 }
 
-$sql = "SELECT * FROM pengeluaran";
+$sql = "SELECT * FROM pengeluaran order by tanggal asc";
 $result = $koneksi->query($sql);
 
 $sqltotalbulanan = "SELECT SUM(besaran) AS total_bulanan FROM pengeluaran WHERE tanggal >= CURDATE() - INTERVAL 1 MONTH";
@@ -45,7 +45,7 @@ $hari_map = [
     "Saturday" => "Sabtu"
 ];
 
-$sql_chart = "SELECT tanggal, SUM(besaran) AS total FROM pengeluaran GROUP BY tanggal ORDER BY tanggal ASC";
+$sql_chart = "SELECT tanggal, SUM(besaran) AS total FROM pengeluaran GROUP BY tanggal ORDER BY tanggal DESC limit 7";
 $result_chart = $koneksi->query($sql_chart);
 
 $tanggal_array = [];
@@ -55,6 +55,9 @@ while ($row = $result_chart->fetch_assoc()) {
     $tanggal_array[] = $row['tanggal'];
     $total_array[] = $row['total'];
 }
+
+$tanggal_array = array_reverse($tanggal_array);
+$total_array = array_reverse($total_array);
 
 $tanggal_js = json_encode($tanggal_array);
 $total_js = json_encode($total_array);
@@ -159,7 +162,7 @@ $total_js = json_encode($total_array);
                 datasets: [{
                     label: 'Kategori Pengeluaran',
                     data: <?= $data_json ?>,
-                    backgroundColor: ['#506F67', '#687D31','#19350C'],
+                    backgroundColor: ['#506F67', '#687D31','#19350C', '#406768', '#30253E', '#C3C88C', '#94C7B4'],
                     borderWidth: 1
                 }]
             },
